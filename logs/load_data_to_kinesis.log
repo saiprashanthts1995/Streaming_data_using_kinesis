@@ -1,0 +1,19 @@
+2020-12-22 10:01:36.856 | INFO     | __main__:<module>:29 - The environment we are going to load is dev
+2020-12-22 10:01:36.874 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.001002
+2020-12-22 10:03:15.431 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
+2020-12-22 10:03:15.435 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00
+2020-12-22 10:03:40.434 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
+2020-12-22 10:03:40.438 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.000997
+2020-12-22 10:04:17.511 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
+2020-12-22 10:04:17.516 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.000599
+2020-12-22 10:04:52.058 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
+2020-12-22 10:04:53.016 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-22 10:04:53.018 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
+1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
+2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
+3       4  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...       Tables      Bretford CR4500 Series Slim Rectangular Table  957.5775        5     0.45 -383.0310
+4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
+
+[5 rows x 21 columns]
+2020-12-22 10:04:53.222 | INFO     | utils:wrapper:41 - Total time taken is 0:00:01.162425
