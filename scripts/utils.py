@@ -4,14 +4,14 @@ import json
 from datetime import datetime
 
 
-def read_config():
+def read_config(env):
     """
     This is used to read the config file as json object
     :return: config
     """
     with open("../config/config.json") as f:
         config = json.load(f)
-    return config
+    return config[env.lower()]
 
 
 def logging():
@@ -19,7 +19,7 @@ def logging():
     This function is used to log all config details
     :return: logger object
     """
-    logger.add("../logs/",
+    logger.add("../logs/load_data_to_kinesis.log",
                level="INFO",
                retention="10 days",
                rotation="10 days")
@@ -46,23 +46,23 @@ def timeit(method1):
     return wrapper
 
 
-def read_data():
+def read_data(env):
     """
     This UDF is used to read excel dataset and stores the data as pandas dataframe in memory
     :return: Boolean Object
     """
-    config = read_config()
+    config = read_config(env)
     file_type = config['File_Type']
     file_name = config['Name_of_the_file']
     sheet_name = config['sheet_name']
     try:
-        if file_type.upper() == 'xls':
-            data = pd.read_excel(file_name,
+        if file_type.lower() == 'xls':
+            data = pd.read_excel("../data/" + file_name,
                                  sheet_name=sheet_name
                                  )
             logger.info("First 5 rows are shown below")
             logger.info(data.head())
-            return True
+            return data
     except Exception as e:
         print(e)
         exit(1)
