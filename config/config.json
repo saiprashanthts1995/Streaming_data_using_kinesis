@@ -1,8 +1,8 @@
 {
-  "details" : {
-    "Shard_name" : "",
-    "Name_of_the_file" : "",
+  "dev" : {
+    "Shard_name" : "practice",
+    "Name_of_the_file" : "Sample-sales-data-excel.xls",
     "File_Type" : "xls",
-    "sheet_name" : ""
+    "sheet_name" : "Orders"
   }
 }
