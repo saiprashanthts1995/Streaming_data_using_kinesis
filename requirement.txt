@@ -1,0 +1,8 @@
+colorama==0.4.4
+loguru==0.5.3
+numpy==1.19.4
+pandas==1.1.5
+python-dateutil==2.8.1
+pytz==2020.4
+six==1.15.0
+win32-setctime==1.0.3
