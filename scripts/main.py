@@ -1,16 +1,31 @@
-# This is a sample Python script.
+__Author__ = "Sai Prashanth Thalanayar Swaminathan"
+__email__ = "saiprashanthts@gmail.com"
+__purpose__ = "To load data to kinesis using python"
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from utils import logging, timeit, read_data, load_data_to_kinesis, read_config
+import argparse
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+@timeit
+def run(env):
+    print(read_config(env))
+    print(read_data(env))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="to load data to kinesis",
+        prog="main.py")
+    parser.add_argument("--env",
+                        "-e",
+                        dest="env",
+                        required=True,
+                        choices=['dev', 'qa'],
+                        help=" decide on the environment to load the data"
+                        )
+    args = parser.parse_args()
+    logger = logging()
+    env = args.env
+    print(args.env)
+    logger.info("The environment we are going to load is {}".format(env))
+    run(env)
