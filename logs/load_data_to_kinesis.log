@@ -1,14 +1,67 @@
-2020-12-22 10:01:36.856 | INFO     | __main__:<module>:29 - The environment we are going to load is dev
-2020-12-22 10:01:36.874 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.001002
-2020-12-22 10:03:15.431 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
-2020-12-22 10:03:15.435 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00
-2020-12-22 10:03:40.434 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
-2020-12-22 10:03:40.438 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.000997
-2020-12-22 10:04:17.511 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
-2020-12-22 10:04:17.516 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.000599
-2020-12-22 10:04:52.058 | INFO     | __main__:<module>:30 - The environment we are going to load is dev
-2020-12-22 10:04:53.016 | INFO     | utils:read_data:63 - First 5 rows are shown below
-2020-12-22 10:04:53.018 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+2020-12-23 04:47:18.261 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:47:18.262 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:48:12.404 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:48:12.405 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:48:12.405 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:48:12.406 | ERROR    | utils:read_data:68 - Missing optional dependency 'xlrd'. Install xlrd >= 1.0.0 for Excel support Use pip or conda to install xlrd.
+Traceback (most recent call last):
+
+  File "main.py", line 35, in <module>
+    run(env)
+    │   └ 'dev'
+    └ <function timeit.<locals>.wrapper at 0x7fa115e60170>
+
+  File "/home/ec2-user/scripts/utils.py", line 38, in wrapper
+    result = method1(*args, **kwargs)
+             │        │       └ {}
+             │        └ ('dev',)
+             └ <function run at 0x7fa131099050>
+
+  File "main.py", line 14, in run
+    data = read_data(env)
+           │         └ 'dev'
+           └ <function read_data at 0x7fa115e5edd0>
+
+> File "/home/ec2-user/scripts/utils.py", line 61, in read_data
+    sheet_name=sheet_name
+               └ 'Orders'
+
+  File "/usr/local/lib64/python3.7/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'sheet_name': 'Orders'}
+           │     └ ('../data/Sample-sales-data-excel.xls',)
+           └ <function read_excel at 0x7fa118703ef0>
+
+  File "/usr/local/lib64/python3.7/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+         │         │          └ None
+         │         └ '../data/Sample-sales-data-excel.xls'
+         └ <class 'pandas.io.excel._base.ExcelFile'>
+
+  File "/usr/local/lib64/python3.7/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+    │              │    │        │       │    └ '../data/Sample-sales-data-excel.xls'
+    │              │    │        │       └ <pandas.io.excel._base.ExcelFile object at 0x7fa1187a6210>
+    │              │    │        └ 'xlrd'
+    │              │    └ {'xlrd': <class 'pandas.io.excel._xlrd._XlrdReader'>, 'openpyxl': <class 'pandas.io.excel._openpyxl._OpenpyxlReader'>, 'odf':...
+    │              └ <pandas.io.excel._base.ExcelFile object at 0x7fa1187a6210>
+    └ <pandas.io.excel._base.ExcelFile object at 0x7fa1187a6210>
+
+  File "/usr/local/lib64/python3.7/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+    │                                        └ 'Install xlrd >= 1.0.0 for Excel support'
+    └ <function import_optional_dependency at 0x7fa11b8be320>
+
+  File "/usr/local/lib64/python3.7/site-packages/pandas/compat/_optional.py", line 110, in import_optional_dependency
+    raise ImportError(msg) from None
+                      └ "Missing optional dependency 'xlrd'. Install xlrd >= 1.0.0 for Excel support Use pip or conda to install xlrd."
+
+ImportError: Missing optional dependency 'xlrd'. Install xlrd >= 1.0.0 for Excel support Use pip or conda to install xlrd.
+2020-12-23 04:48:22.412 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:48:22.413 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:48:22.413 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:48:22.467 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-23 04:48:22.467 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
 0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
 1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
 2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
@@ -16,4 +69,151 @@
 4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
 
 [5 rows x 21 columns]
-2020-12-22 10:04:53.222 | INFO     | utils:wrapper:41 - Total time taken is 0:00:01.162425
+2020-12-23 04:48:22.513 | ERROR    | utils:load_data_to_kinesis:92 - client() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+
+  File "main.py", line 35, in <module>
+    run(env)
+    │   └ 'dev'
+    └ <function timeit.<locals>.wrapper at 0x7fa5f46a0170>
+
+  File "/home/ec2-user/scripts/utils.py", line 38, in wrapper
+    result = method1(*args, **kwargs)
+             │        │       └ {}
+             │        └ ('dev',)
+             └ <function run at 0x7fa60f8d9050>
+
+  File "main.py", line 15, in run
+    load_data_to_kinesis(data,env)
+    │                    │    └ 'dev'
+    │                    └      Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                              ...
+    └ <function load_data_to_kinesis at 0x7fa5f469eef0>
+
+> File "/home/ec2-user/scripts/utils.py", line 76, in load_data_to_kinesis
+    kinesis_client = boto3.client('kinesis', region='us-east-1')
+                     │     └ <function client at 0x7fa5f469ecb0>
+                     └ <module 'boto3' from '/usr/local/lib/python3.7/site-packages/boto3/__init__.py'>
+
+  File "/usr/local/lib/python3.7/site-packages/boto3/__init__.py", line 93, in client
+    return _get_default_session().client(*args, **kwargs)
+           │                              │       └ {'region': 'us-east-1'}
+           │                              └ ('kinesis',)
+           └ <function _get_default_session at 0x7fa5f469eb90>
+
+TypeError: client() got an unexpected keyword argument 'region'
+2020-12-23 04:48:22.607 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.194046
+2020-12-23 04:48:43.903 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:48:43.903 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:48:43.904 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:48:43.959 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-23 04:48:43.959 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
+1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
+2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
+3       4  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...       Tables      Bretford CR4500 Series Slim Rectangular Table  957.5775        5     0.45 -383.0310
+4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
+
+[5 rows x 21 columns]
+2020-12-23 04:48:44.040 | INFO     | utils:load_data_to_kinesis:77 - Boto3 client to kinesis made successfully
+2020-12-23 04:48:44.085 | ERROR    | utils:load_data_to_kinesis:92 - 'str' object has no attribute 'iloc'
+Traceback (most recent call last):
+
+  File "main.py", line 35, in <module>
+    run(env)
+    │   └ 'dev'
+    └ <function timeit.<locals>.wrapper at 0x7fc56d226170>
+
+  File "/home/ec2-user/scripts/utils.py", line 38, in wrapper
+    result = method1(*args, **kwargs)
+             │        │       └ {}
+             │        └ ('dev',)
+             └ <function run at 0x7fc58845e050>
+
+  File "main.py", line 15, in run
+    load_data_to_kinesis(data,env)
+    │                    │    └ 'dev'
+    │                    └      Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                              ...
+    └ <function load_data_to_kinesis at 0x7fc56d225ef0>
+
+> File "/home/ec2-user/scripts/utils.py", line 83, in load_data_to_kinesis
+    data = '|'.join([str(element) for element in data.iloc[i, :].tolist()])
+                                                 │         └ 1
+                                                 └ '1|CA-2016-152156|2016-11-08 00:00:00|2016-11-11 00:00:00|Second Class|CG-12520|Claire Gute|Consumer|United States|Henderson|...
+
+AttributeError: 'str' object has no attribute 'iloc'
+2020-12-23 04:48:44.177 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.273391
+2020-12-23 04:51:14.746 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:51:14.746 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:51:14.747 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:51:14.800 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-23 04:51:14.800 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
+1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
+2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
+3       4  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...       Tables      Bretford CR4500 Series Slim Rectangular Table  957.5775        5     0.45 -383.0310
+4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
+
+[5 rows x 21 columns]
+2020-12-23 04:51:14.845 | ERROR    | utils:load_data_to_kinesis:92 - client() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+
+  File "main.py", line 35, in <module>
+    run(env)
+    │   └ 'dev'
+    └ <function timeit.<locals>.wrapper at 0x7f2733dca200>
+
+  File "/home/ec2-user/scripts/utils.py", line 38, in wrapper
+    result = method1(*args, **kwargs)
+             │        │       └ {}
+             │        └ ('dev',)
+             └ <function run at 0x7f274f001050>
+
+  File "main.py", line 15, in run
+    load_data_to_kinesis(data,env)
+    │                    │    └ 'dev'
+    │                    └      Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                              ...
+    └ <function load_data_to_kinesis at 0x7f2733dc8f80>
+
+> File "/home/ec2-user/scripts/utils.py", line 76, in load_data_to_kinesis
+    kinesis_client = boto3.client('kinesis', region='us-east-1')
+                     │     └ <function client at 0x7f2733dc8d40>
+                     └ <module 'boto3' from '/usr/local/lib/python3.7/site-packages/boto3/__init__.py'>
+
+  File "/usr/local/lib/python3.7/site-packages/boto3/__init__.py", line 93, in client
+    return _get_default_session().client(*args, **kwargs)
+           │                              │       └ {'region': 'us-east-1'}
+           │                              └ ('kinesis',)
+           └ <function _get_default_session at 0x7f2733dc8c20>
+
+TypeError: client() got an unexpected keyword argument 'region'
+2020-12-23 04:51:14.937 | INFO     | utils:wrapper:41 - Total time taken is 0:00:00.190428
+2020-12-23 04:51:30.771 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:51:30.771 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:51:30.772 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:51:30.825 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-23 04:51:30.825 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
+1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
+2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
+3       4  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...       Tables      Bretford CR4500 Series Slim Rectangular Table  957.5775        5     0.45 -383.0310
+4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
+
+[5 rows x 21 columns]
+2020-12-23 04:51:30.908 | INFO     | utils:load_data_to_kinesis:77 - Boto3 client to kinesis made successfully
+2020-12-23 04:51:31.946 | INFO     | utils:load_data_to_kinesis:88 - Data Pushed into kinesis
+2020-12-23 04:51:31.948 | INFO     | utils:wrapper:41 - Total time taken is 0:00:01.175945
+2020-12-23 04:54:56.831 | INFO     | __main__:<module>:33 - Process of loading data is 
+2020-12-23 04:54:56.832 | INFO     | __main__:<module>:34 - The environment we are going to load is dev
+2020-12-23 04:54:56.832 | INFO     | __main__:run:12 - Loading process begins now
+2020-12-23 04:54:56.886 | INFO     | utils:read_data:63 - First 5 rows are shown below
+2020-12-23 04:54:56.887 | INFO     | utils:read_data:64 -    Row ID        Order ID Order Date  Ship Date       Ship Mode Customer ID  ... Sub-Category                                       Product Name     Sales Quantity Discount    Profit
+0       1  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...    Bookcases                  Bush Somerset Collection Bookcase  261.9600        2     0.00   41.9136
+1       2  CA-2016-152156 2016-11-08 2016-11-11    Second Class    CG-12520  ...       Chairs  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400        3     0.00  219.5820
+2       3  CA-2016-138688 2016-06-12 2016-06-16    Second Class    DV-13045  ...       Labels  Self-Adhesive Address Labels for Typewriters b...   14.6200        2     0.00    6.8714
+3       4  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...       Tables      Bretford CR4500 Series Slim Rectangular Table  957.5775        5     0.45 -383.0310
+4       5  US-2015-108966 2015-10-11 2015-10-18  Standard Class    SO-20335  ...      Storage                     Eldon Fold 'N Roll Cart System   22.3680        2     0.20    2.5164
+
+[5 rows x 21 columns]
+2020-12-23 04:54:56.967 | INFO     | utils:load_data_to_kinesis:77 - Boto3 client to kinesis made successfully
+2020-12-23 04:54:57.912 | INFO     | utils:load_data_to_kinesis:88 - Data Pushed into kinesis
+2020-12-23 04:54:57.914 | INFO     | utils:wrapper:41 - Total time taken is 0:00:01.081912
