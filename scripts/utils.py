@@ -73,16 +73,16 @@ def load_data_to_kinesis(data, env):
     try:
         config = read_config(env)
         shard_name = config['Shard_name']
-        kinesis_client = boto3.client('kinesis', region='us-east-1')
+        kinesis_client = boto3.client('kinesis', region_name='us-east-1')
         logger.info('Boto3 client to kinesis made successfully')
         for i, j in data.iterrows():
             # print(i)  # prints the index number
             # print(j)   # prints that row as series
             # print(j['Row ID'])   # prints the corresponding row id value
             # print(data.iloc[i, :].tolist())
-            data = '|'.join([str(element) for element in data.iloc[i, :].tolist()])
+            data_string = '|'.join([str(element) for element in data.iloc[i, :].tolist()])
             partition_key = '{}'.format(j['Row ID'])
-            kinesis_client.put_record(Data=data,
+            kinesis_client.put_record(Data=data_string,
                                       StreamName=shard_name,
                                       PartitionKey=partition_key)
         logger.info('Data Pushed into kinesis')
