@@ -9,7 +9,7 @@ import boto3
 
 @timeit
 def run(env):
-    logger.infof
+    logger.info('Loading process begins now')
     print(read_config(env))
     data = read_data(env)
     load_data_to_kinesis(data,env)
