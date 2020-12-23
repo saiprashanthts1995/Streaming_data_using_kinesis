@@ -2,7 +2,7 @@ import pandas as pd
 from loguru import logger
 import json
 from datetime import datetime
-
+import boto3
 
 def read_config(env):
     """
@@ -65,9 +65,28 @@ def read_data(env):
             return data
     except Exception as e:
         print(e)
+        logger.exception(e)
         exit(1)
 
 
-def load_data_to_kinesis():
-    pass
-
+def load_data_to_kinesis(data, env):
+    try:
+        config = read_config(env)
+        shard_name = config['Shard_name']
+        kinesis_client = boto3.client('kinesis', region='us-east-1')
+        logger.info('Boto3 client to kinesis made successfully')
+        for i, j in data.iterrows():
+            # print(i)  # prints the index number
+            # print(j)   # prints that row as series
+            # print(j['Row ID'])   # prints the corresponding row id value
+            # print(data.iloc[i, :].tolist())
+            data = '|'.join([str(element) for element in data.iloc[i, :].tolist()])
+            partition_key = '{}'.format(j['Row ID'])
+            kinesis_client.put_record(Data=data,
+                                      StreamName=shard_name,
+                                      PartitionKey=partition_key)
+        logger.info('Data Pushed into kinesis')
+        return True
+    except Exception as e:
+        print(e)
+        logger.exception(e)
