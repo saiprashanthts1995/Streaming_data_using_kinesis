@@ -2,14 +2,17 @@ __Author__ = "Sai Prashanth Thalanayar Swaminathan"
 __email__ = "saiprashanthts@gmail.com"
 __purpose__ = "To load data to kinesis using python"
 
-from utils import logging, timeit, read_data, load_data_to_kinesis, read_config
+from utils import logging, timeit, read_data, load_data_to_kinesis, read_config, load_data_to_kinesis
 import argparse
+import boto3
 
 
 @timeit
 def run(env):
+    logger.infof
     print(read_config(env))
-    print(read_data(env))
+    data = read_data(env)
+    load_data_to_kinesis(data,env)
 
 
 if __name__ == "__main__":
@@ -27,5 +30,6 @@ if __name__ == "__main__":
     logger = logging()
     env = args.env
     print(args.env)
+    logger.info('Process of loading data is ')
     logger.info("The environment we are going to load is {}".format(env))
     run(env)
